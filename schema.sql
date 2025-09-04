@@ -70,3 +70,14 @@ insert into contract_c (id, name) values (1, 'contract1'), (2, 'contract2'), (3,
 insert into customer_c (id, name) values (1, 'customer1'), (2, 'customer2'), (3, 'customer3'), (4, 'customer4');
 insert into contract_customer_c (contract_c_id, customer_c_id) values (1, 1), (1, 2), (2, 3), (2, 1), (3, 4), (3,2), (4, 1), (4, 3);
 comment on table contract_customer_c is E'@foreignKey (contract_c_id) references contract_c (id)\n@foreignKey (customer_c_id) references customer_c (id)';
+
+
+--- Case D
+
+create MATERIALIZED view contract_d AS
+select id, name from contract_c;
+create MATERIALIZED view customer_d AS
+select id, name from customer_c;
+create MATERIALIZED view contract_customer_d AS
+select contract_c_id as contract_d_id, customer_c_id as customer_d_id from contract_customer_c;
+comment on MATERIALIZED view contract_customer_d is E'@foreignKey (contract_d_id) references contract_d (id)\n@foreignKey (customer_d_id) references customer_d (id)';
