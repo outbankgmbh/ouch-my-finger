@@ -27,6 +27,7 @@ services:
       - ./tags.json5:/app/tags.json5
     environment:
       - DATABASE_URL=postgres://postgres:postgres@postgres:5432/appdb
+      - GRAPHILE_ENV=development
     entrypoint: >
       sh -c "
         yarn --frozen-lockfile
