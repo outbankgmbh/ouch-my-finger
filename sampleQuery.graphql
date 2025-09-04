@@ -1,0 +1,102 @@
+query MyQuery {
+  contractAs {
+    nodes {
+      name
+      customerAsByContractCustomerAContractAIdAndCustomerAId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  customerAs {
+    nodes {
+      name
+      contractAsByContractCustomerACustomerAIdAndContractAId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  contractBs {
+    nodes {
+      name
+      customerBsByContractCustomerBContractBIdAndCustomerBId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  customerBs {
+    nodes {
+      name
+      contractBsByContractCustomerBCustomerBIdAndContractBId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  contractCs {
+    nodes {
+      name
+      customerCsByContractCustomerCContractCIdAndCustomerCId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  customerCs {
+    nodes {
+      name
+      contractCsByContractCustomerCCustomerCIdAndContractCId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  contractDs {
+    nodes {
+      name
+      customerDsByContractCustomerDContractDIdAndCustomerDId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  customerDs {
+    nodes {
+      name
+      contractDsByContractCustomerDCustomerDIdAndContractDId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  contractEs {
+    nodes {
+      name
+      customerEsByContractCustomerEContractEIdAndCustomerEId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+  customerEs {
+    nodes {
+      name
+      contractEsByContractCustomerECustomerEIdAndContractEId {
+        nodes {
+          name
+        }
+      }
+    }
+  }
+}
