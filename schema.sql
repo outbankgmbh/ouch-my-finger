@@ -46,3 +46,29 @@ create table contract_customer_b (
 insert into contract_b (id, name) values (1, 'contract1'), (2, 'contract2'), (3, 'contract3'), (4, 'contract4');
 insert into customer_b (id, name) values (1, 'customer1'), (2, 'customer2'), (3, 'customer3'), (4, 'customer4');
 insert into contract_customer_b (customer_b_id, contract_b_id) values (1, 1), (1, 2), (2, 3), (2, 1), (3, 4), (3,2), (4, 1), (4, 3);
+
+--- Case C
+--- no connection on either side
+
+create table contract_c (
+  id serial primary key,
+  name text not null
+);
+
+create table customer_c (
+  id serial primary key,
+  name text not null
+);
+
+create table contract_customer_c (
+  contract_c_id int,
+  customer_c_id int,
+  primary key (contract_c_id, customer_c_id)
+);
+
+insert into contract_c (id, name) values (1, 'contract1'), (2, 'contract2'), (3, 'contract3'), (4, 'contract4');
+insert into customer_c (id, name) values (1, 'customer1'), (2, 'customer2'), (3, 'customer3'), (4, 'customer4');
+insert into contract_customer_c (contract_c_id, customer_c_id) values (1, 1), (1, 2), (2, 3), (2, 1), (3, 4), (3,2), (4, 1), (4, 3);
+comment on table contract_customer_c is E'
+foreign key (contract_c_id) references contract_c (id),
+foreign key (customer_c_id) references customer_c (id)';
